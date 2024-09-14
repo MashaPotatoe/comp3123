@@ -1,0 +1,116 @@
+
+// exercise 1 
+// rewrite code using arrow function, const 
+
+
+function greeter(myArray){
+    var greetText = 'Howdy :D ';
+    for (var index = 0; index < myArray.length; index++){
+        console.log(greetText + myArray[index]);
+    }
+} 
+
+const greet = (myArray) => { 
+    for (var index = 0; index < myArray.length; index++)
+        console.log("Hello " + myArray[index]);
+};
+
+greet(['Masha', 'Maria', 'Joanie'], 3);
+greeter(['Randy', 'Ric', 'Hulk'], 3);
+
+// exercise 2 
+
+// destrcuture assignment syntax and spread operator 
+// capitalize first letter of string
+
+// no spread 
+function capFirst(string){
+    console.log(string.charAt(0).toUpperCase() + string.slice(1));
+};
+
+console.log(capFirst('foobar'));
+
+
+// with spread
+function capSpread(string){
+    // i slice at 1 so theres no duplicate of F, if empty it will be Ffoobar
+    return [...string][0].toUpperCase() + [...string].slice(1).join('')
+}
+
+console.log(capSpread('foobar'));
+
+// exercise 3
+// array.proto.map capitalize method in exercise 2 
+//to uppercase first letter of color
+
+const colors = ['red', 'blue', 'green']
+
+/*const capColors = [...colors].map([...colors][0].toUpperCase() + 
+[...colors].slice(1).join('')) */
+
+//console.log(capColors);
+
+
+newColors = [...colors].map(c => c.charAt(0).toUpperCase() + c.slice(1));
+
+console.log(newColors)
+
+
+// exercise 4
+
+// use array filter to create a function that will filter out all 
+//values less than 20
+// this was easy :D 
+var values = [1, 60, 34, 30, 20, 5];
+
+const numFilter = values.filter((num) => num > 20);
+
+console.log(numFilter);
+
+// exercise 5 
+// using array reduce calculate sum and product of array
+
+var array = [1,2,3,4]
+
+const sumArray = array.reduce((adding, value) =>
+    adding + value);
+
+const prodArray = array.reduce((multiplying, value) => 
+    multiplying * value);
+
+console.log(sumArray);
+console.log(prodArray);
+
+// exercise 6
+// create a class of car and subclass of sedan from car 
+// model, year, balance
+
+class Car {
+    constructor(model, year){
+    this.model = model;
+    this.year = year;
+    }
+    details() {
+        console.log(`Model : ${this.model}, Year: ${this.year}`);
+    }
+}
+
+
+
+class Sedan extends Car{
+    constructor(model, year,balance){
+        
+        super(model,year);
+        this.balance = balance;
+    }
+    info(){
+        console.log(`Model : ${this.model}, Year: ${this.year}, Balance: ${this.balance}`);
+    }
+}
+
+const car = new Car('Ferrari', '2016');
+const sedan = new Sedan('Sedan Model', ' 2024', '1000');
+console.log(car.details());
+console.log(sedan.info());
+
+
