@@ -18,8 +18,8 @@ const server = http.createServer((req, res) => {
         if (req.url === '/') {
             //TODO - Display message "<h1>Welcome to Lab Exercise 03</h1>"
             res.writeHead(200, {'Content-Type': 'text/html'});
-            return res.write('<h1>Welcome to Lab 3 Exercise :) </h1>')
-            res.end(); 
+            return res.end('<h1>Welcome to Lab 3 Exercise :) </h1>')
+            
 
         }
 
